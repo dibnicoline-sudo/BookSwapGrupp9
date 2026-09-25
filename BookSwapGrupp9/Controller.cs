@@ -14,7 +14,7 @@ namespace BookSwapGrupp9
                 annonser.Add(annons); 
             }
 
-        public string ReserveraAnnons(int annonsId, student köpare)
+        public string ReserveraAnnons(int annonsId, Student köpare)
         {
             Annons annons = VisaAnnons (annonsId);
             if (annons == null)
@@ -25,6 +25,7 @@ namespace BookSwapGrupp9
 
             if (annons.Säljare == köpare)
                 return "Du kan inte reservera din egen annons.";
+        }
 
             Affar affar = new Affar(köpare, annons);
             affarer.Add(affar);
@@ -37,9 +38,6 @@ namespace BookSwapGrupp9
         }
 
 
-        //return $"Reservationsbekräftelse: affär #{affar.affarsId}, " +
-        //$"\"{annons.Titel}\" reserverad av {köpare}, " +
-        //$"Kontakta säljaren {annons.Säljare} ({annons.Säljare.Epostadress})."; 
     }
 }
     

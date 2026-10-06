@@ -6,31 +6,33 @@ namespace BookSwapGrupp9
 {
     public class Annons
     {
-        private int AnnonsId { get; set;  }
-        private string Titel {get; set; }
-        private decimal Pris {get; set; }
+        public int AnnonsId { get; private set;  }
+        public string Titel {get; private set; }
+        public decimal Pris {get; private set; }
+        private DateTime Publiceringsdatum { get; set; }
         public AnnonsStatus StatusAnnons { get; private set; }
         public AnnonsSkick Skick { get; private set; }
-        public student Säljare { get; }
+        public Student Säljare { get; }
         
-        public Annons (int annonsId, string titel,  decimal pris, AnnonsSkick skick, AnnonsStatus status, student säljare)
+        public Annons (int annonsId, string titel,  decimal pris, AnnonsSkick skick, AnnonsStatus status, DateTime publiceringsdatum, Student säljare)
         {
             AnnonsId = annonsId;
             Titel = titel;
+            Pris = pris;
             StatusAnnons = status;
             Skick = skick;
-            Säljare = säljare; 
+            Publiceringsdatum = publiceringsdatum;
+            Säljare = säljare;
         }
         public bool KontrolleraStatus()
         {
             return StatusAnnons == AnnonsStatus.TillSalu;
         }
-        public void UppdateraStatus (AnnonsStatus nyStatus)
+        public void UppdateraAnnonsStatus (AnnonsStatus nyAnnonsStatus)
         {
-            StatusAnnons = nyStatus;
+            StatusAnnons = nyAnnonsStatus;
         }
         public override string ToString() =>
-        $"[{AnnonsId}] {Titel} - {Pris} kr, {Skick}, {StatusAnnons}";
-               
+        $"[{AnnonsId}] {Titel} - {Pris} kr, {Skick}, {StatusAnnons}";        
     }
 }

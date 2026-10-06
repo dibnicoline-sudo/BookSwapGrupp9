@@ -4,20 +4,22 @@ using System.Text;
 
 namespace BookSwapGrupp9
 {
-    public class student
+    public class Student
     {
-        private int StudentId { get; set; }
-        private string Fornamn { get; set; }
-        private string Efternamn { get; set; }
-        private string Epostadress { get; set; }
+        public int StudentId { get; private set; }
+        public string Fornamn { get; private set; }
+        public string Efternamn { get; private set; }
+        public string Epostadress { get; private set; }
         private string Telefonnummer { get; set; }
 
-        public student (int studentId, string fornamn, string efternamn)
+        public Student (int studentId, string fornamn, string efternamn, string epostadress, string telefonnummer)
         {
             StudentId = studentId;
             Fornamn  = fornamn;
             Efternamn = efternamn;
+            Epostadress = epostadress;
+            Telefonnummer = telefonnummer;
         }
-
+        
     }
 }

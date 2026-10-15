@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-            Controller controller = new Controller();
+            Databas databas = new Databas();
+            Controller controller = new Controller(databas);
 
             Student student1 = new Student(1,"Sara", "Andersson", "saraA@gmail.com", "0729386544");
             Student student2 = new Student(2, "Alex", "Karlsson", "KarlssonAlex@icloud.com", "0712345679");

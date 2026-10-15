@@ -60,6 +60,60 @@ namespace Servicelager
             $"Reserveringsdatum: {affar.Reserveringsdatum}\n" +
             $"Affär: #{affar.AffarsId}";
         }
+        public string BekräftaKöp (Affar affar)
+        {
+            if (affar == null)
+                return "Affären finns inte.";
+            if (!databas.HämtaAllaAnnonser().Contains(affar.Annons))
+            {
+                return "Annonsen har tagits bort. Köpet kan inte bekräftas.";
+            }
+            if (affar.AffarStatus != AffarStatus.Reserverad)
+                return "Affären är inte reserverad.";
+            affar.UppdateraAffarStatus(AffarStatus.Genomford);
+            affar.Annons.UppdateraAnnonsStatus(AnnonsStatus.Sald);
+            return "Köpet är bekräftat! Annonsen är nu såld!";
+        }
+        public List<Affar> HämtaAllaAffarer()
+        {
+            return databas.HämtaAllaAffarer();
+        }
+        public List<Annons> HämtaAllaAnnonser()
+        {
+            return databas.HämtaAllaAnnonser();
+        }
+        public bool TaBortAnnons (Annons annons, Administrator administrator) //tar emot annonsobjektet
+        {
+           
+            if (annons == null || administrator == null)
+            {
+                return false;
+            }
+            if (!databas.HämtaAllaAdministrator().Contains(administrator))
+            {
+                return false;
+            }
+            return databas.TaBortAnnons(annons);
+        }
+        public Administrator? HämtaAdministrator (string epostadress)
+        {
+            return databas.HämtaAdministrator(epostadress);
+        }
+        public Administrator? LoggaInAdministrator (string epostadress, string losenord)
+        {
+            Administrator? admin = databas.HämtaAdministrator(epostadress); //metoden ber databasen att leta efetr en admin med den eposten
+
+            if(admin == null)
+            {
+                return null;
+            }
+
+            if (admin.Losenord != losenord)
+            {
+                return null; 
+            }
+            return admin; //returnerar resultatet, om admin finns returneras ett administratörs-objket, annrs null
+        }
     }
 }
 

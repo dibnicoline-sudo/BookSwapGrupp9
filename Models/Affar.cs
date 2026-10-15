@@ -28,7 +28,15 @@ namespace Models
             AffarStatus = nyAffarStatus;
 
         }
+        public override string ToString()
+        {
+            string status = AffarStatus == AffarStatus.Genomford
+            ? "Genomförd" 
+            : AffarStatus.ToString();
+            return $"{Annons.Titel} - Köpare: {Köpare.Fornamn} {Köpare.Efternamn} - {status}";
+        }
     }
+    
 }
 
 

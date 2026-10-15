@@ -28,12 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            btnBekraftaKop = new Button();
+            lstAffarer = new ListBox();
+            SuspendLayout();
+            // 
+            // btnBekraftaKop
+            // 
+            btnBekraftaKop.Location = new Point(12, 190);
+            btnBekraftaKop.Name = "btnBekraftaKop";
+            btnBekraftaKop.Size = new Size(160, 29);
+            btnBekraftaKop.TabIndex = 0;
+            btnBekraftaKop.Text = "Bekräfta köp";
+            btnBekraftaKop.UseVisualStyleBackColor = true;
+            btnBekraftaKop.Click += btnBekraftaKop_Click;
+            // 
+            // lstAffarer
+            // 
+            lstAffarer.FormattingEnabled = true;
+            lstAffarer.Location = new Point(12, 45);
+            lstAffarer.Name = "lstAffarer";
+            lstAffarer.Size = new Size(400, 104);
+            lstAffarer.TabIndex = 1;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(lstAffarer);
+            Controls.Add(btnBekraftaKop);
+            Name = "Form1";
+            Text = "BookSwap";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnBekraftaKop;
+        private ListBox lstAffarer;
     }
 }

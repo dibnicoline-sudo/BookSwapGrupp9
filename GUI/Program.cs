@@ -19,8 +19,8 @@ namespace GUI
             
             //testdata
             Administrator admin = new Administrator("Anna", "Andersson", "anna@bookswap.se", "0764352290", "Anna2026");
-            Student saljare = new Student(1, "Sara", "Andersson", "sara@gmail.com", "0701234567");
-            Student kopare = new Student(2, "Alex", "Karlsson", "alex@gmail.com", "0709876543");
+            Student saljare = new Student(1, "Sara", "Andersson", "sara@gmail.com", "0701234567", "Sara2026");
+            Student kopare = new Student(2, "Alex", "Karlsson", "alex@gmail.com", "0709876543", "Alex2026");
 
             Annons annons = new Annons(
                 1,

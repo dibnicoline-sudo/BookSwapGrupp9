@@ -1,5 +1,6 @@
 ﻿using Models;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Text;
@@ -113,6 +114,35 @@ namespace Servicelager
                 return null; 
             }
             return admin; //returnerar resultatet, om admin finns returneras ett administratörs-objket, annrs null
+        }
+        public Student? LoggaInStudent (string epostadress, string losenord)
+        {
+            Student? student = databas.HämtaAllaStudenter().FirstOrDefault(s=> s.Epostadress == epostadress);
+            if (student == null)
+            {
+                return null;
+            }
+            if (!student.KontrolleraLosenord(losenord))
+            {
+                return null;
+            }
+            return student;
+        }
+        public string RegistreraStudent (int studentId, string fornamn, string efternamn, string epostadress, string telefonnummer, string losenord)
+        {
+            //Kontroll om epostadress redan finns
+            Student? befintligStudent = databas.HämtaAllaStudenter().FirstOrDefault(s => s.Epostadress == epostadress);
+
+            if (befintligStudent != null)
+            {
+                return "Epostadressen används redan";
+            }
+            //Skapa nytt studentobjket
+            Student nyStudent = new Student(studentId, fornamn, efternamn, epostadress, telefonnummer, losenord);
+
+            //spara studenten i databas
+            databas.LäggTillStudent(nyStudent);
+            return "Registreringen lyckades!";
         }
     }
 }

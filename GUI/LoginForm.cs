@@ -36,16 +36,24 @@ namespace GUI
             string epostadress = txtEpost.Text;
             string losenord = txtLosenord.Text;
 
+            //försöka logga in som administatör
             Administrator? admin = controller.LoggaInAdministrator(epostadress, losenord); //skickar uppgifter till Controller, som kontrollerar dem mot administratör i datasen
 
-            if (admin == null) //kontroll om inloggning misslyckades
+            if (admin != null) //kontroll om inloggning misslyckades
             {
-                MessageBox.Show("Fel e-postadress eller lösenord");
+                MessageBox.Show("Välkommen " + admin.Fornamn + "!");
+                AdminForm adminFonster = new AdminForm(controller, admin); //skapar administratörerns eget förnser, skickar samma controller så admin kan se annonserna i databasen
+                adminFonster.Show();
                 return;
             }
-            MessageBox.Show("Välkommen " + admin.Fornamn + "!");
-            AdminForm adminFonster = new AdminForm(controller, admin); //skapar administratörerns eget förnser, skickar samma controller så admin kan se annonserna i databasen
-            adminFonster.Show();
+            Student? student = controller.LoggaInStudent(epostadress, losenord);
+            if (student != null)
+            {
+                MessageBox.Show("Välkommen " +  student.Fornamn + "!");
+                return;
+            }
+       
+            MessageBox.Show("Fel e-postadress eller lösenord");
         }
 
         private void label1_Click(object sender, EventArgs e)

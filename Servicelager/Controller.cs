@@ -89,7 +89,7 @@ namespace Servicelager
             {
                 return false;
             }
-            if (!databas.HämtaAllaAdministrator().Contains(administrator))
+            if (!databas.HämtaAllaAdministratorer().Contains(administrator))
             {
                 return false;
             }

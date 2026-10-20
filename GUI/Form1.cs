@@ -30,7 +30,7 @@ namespace GUI
             string resultat = controller.BekräftaKöp(affar); //skickar själva affärobjketet
             MessageBox.Show(resultat); //visar om köpet kunde bekräftas
 
-            lstAffarer.DataSource = null; //tömmer listans koppling till datan
+            lstAffarer.DataSource = null; //tömmer listans koppling till den gamla listan
             lstAffarer.DataSource = controller.HämtaAllaAffarer(); //kopplar loistan till affärerna igen så den visar deras nya status
         }
 

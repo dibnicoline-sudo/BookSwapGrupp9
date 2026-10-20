@@ -64,7 +64,7 @@ namespace Servicelager
         {
             return administratorer.FirstOrDefault(a => a.Epostadress == epostadress); //jämför varhe admins epost med den som skickas in
         }
-        public List<Administrator> HämtaAllaAdministrator()
+        public List<Administrator> HämtaAllaAdministratorer()
         {
             return administratorer;
         }

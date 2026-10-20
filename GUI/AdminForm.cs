@@ -47,7 +47,7 @@ namespace GUI
                 if (borttagen)
                 {
                     lstAnnonser.DataSource = null;
-                    lstAnnonser.DataSource = controller.HämtaAllaAnnonser(); //controller kontrollerar om administratör finns i databasen innan borttagningen
+                    lstAnnonser.DataSource = controller.HämtaAllaAnnonser(); //hämtar annonserna igen så att listan uppdateras
 
                     MessageBox.Show("Annonsen har tagits bort.");
                 } 
@@ -55,8 +55,6 @@ namespace GUI
                 {
                     MessageBox.Show("Annonsen kunde inte tas bort");
                 }
-
-               
             }
         }
     }

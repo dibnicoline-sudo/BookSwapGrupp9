@@ -14,9 +14,9 @@ namespace Models
         public Kursbok(int annonsId, string titel, decimal pris,
             AnnonsSkick skick, AnnonsStatus status,
             DateTime publiceringsdatum, Student säljare,
-            string isbn, string författare)
+            string isbn, string författare, Kurs kurs)
             : base(annonsId, titel, pris, skick, status,
-                   publiceringsdatum, säljare)
+                   publiceringsdatum, säljare, kurs)
         {
             ISBN = isbn;
             Författare = författare;

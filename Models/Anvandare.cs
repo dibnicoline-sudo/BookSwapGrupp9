@@ -25,6 +25,14 @@ namespace Models
             Epostadress = nyEpostadress;
             Telefonnummer = nyttTelefonnummer;
         }
+        
+        public void UppdateraUppgifter (string fornamn, string efternamn, string epostadress, string telefonnummer)
+        {
+            Fornamn = fornamn;
+            Efternamn = efternamn;
+            Epostadress = epostadress;
+            Telefonnummer = telefonnummer;
+        }
     }
     
 }

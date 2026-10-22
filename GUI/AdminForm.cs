@@ -19,7 +19,7 @@ namespace GUI
         public AdminForm(Controller controller, Administrator administrator)
         {
             InitializeComponent();
-           
+
 
             this.controller = controller;
             this.administrator = administrator;
@@ -50,12 +50,33 @@ namespace GUI
                     lstAnnonser.DataSource = controller.HämtaAllaAnnonser(); //hämtar annonserna igen så att listan uppdateras
 
                     MessageBox.Show("Annonsen har tagits bort.");
-                } 
+                }
                 else
                 {
                     MessageBox.Show("Annonsen kunde inte tas bort");
                 }
             }
+        }
+
+        private void btnHanteraKurser_Click(object sender, EventArgs e)
+        {
+            KurshanteringForm kursForm = new KurshanteringForm(controller);
+
+            this.Hide();
+            kursForm.ShowDialog();
+            this.Show();
+        }
+
+        private void btnHanteraAnvandare_Click(object sender, EventArgs e)
+        {
+            AnvandarhanteringForm form = new AnvandarhanteringForm(controller);
+
+            form.ShowDialog();
+        }
+
+        private void btnLoggaUt_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

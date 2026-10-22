@@ -46,19 +46,32 @@ namespace GUI
                 adminFonster.Show();
                 return;
             }
+
             Student? student = controller.LoggaInStudent(epostadress, losenord);
             if (student != null)
             {
-                MessageBox.Show("Välkommen " +  student.Fornamn + "!");
+                StudentForm studentForm = new StudentForm(controller, student);
+
+                this.Hide();
+                studentForm.ShowDialog();
+                this.Show(); //visar inloggningsfönstret igen när studentsidan stängs
+
                 return;
             }
-       
+
             MessageBox.Show("Fel e-postadress eller lösenord");
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnRegistreraDig_Click(object sender, EventArgs e)
+        {
+            RegisteringStudentForm registreringsFonster = new RegisteringStudentForm(controller);
+
+            registreringsFonster.ShowDialog();
         }
     }
 }

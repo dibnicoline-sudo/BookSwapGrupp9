@@ -14,12 +14,17 @@ namespace Models
         public DigitalResurs(int annonsId, string titel, decimal pris,
             AnnonsSkick skick, AnnonsStatus status,
             DateTime publiceringsdatum, Student säljare,
-            string filformat, double filstorlekMB)
+            string filformat, double filstorlekMB, Kurs kurs)
             : base(annonsId, titel, pris, skick, status,
-                   publiceringsdatum, säljare)
+                   publiceringsdatum, säljare, kurs)
         {
             Filformat = filformat;
             FilstorlekMB = filstorlekMB;
+        }
+        public override string ToString()
+        {
+            return base.ToString() +
+                $" - Filformat: {Filformat}, Filstorlek: {FilstorlekMB} MB";
         }
     }
 }

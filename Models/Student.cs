@@ -42,6 +42,11 @@ namespace Models
         {
             return minaAnnonser.Contains(annons);
         }
+
+        public override string ToString()
+        {
+            return $"[{StudentId}] {Fornamn} {Efternamn} - {Epostadress}";
+        }
     }
 }
 

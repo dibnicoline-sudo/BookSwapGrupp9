@@ -14,12 +14,17 @@ namespace Models
         public Kompendium(int annonsId, string titel, decimal pris,
             AnnonsSkick skick, AnnonsStatus status,
             DateTime publiceringsdatum, Student säljare,
-            string kurskod, int antalSidor)
+            string kurskod, int antalSidor, Kurs kurs)
             : base(annonsId, titel, pris, skick, status,
-                   publiceringsdatum, säljare)
+                   publiceringsdatum, säljare, kurs)
         {
             Kurskod = kurskod;
             AntalSidor = antalSidor;
+        }
+        public override string ToString()
+        {
+            return base.ToString() +
+                $" - Kurskod: {Kurskod}, Antal sidor: {AntalSidor}";
         }
     }
 }

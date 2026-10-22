@@ -34,6 +34,8 @@
             txtLosenord = new TextBox();
             btnLoggaIn = new Button();
             label1 = new Label();
+            lblIngetKonto = new Label();
+            btnRegistreraDig = new Button();
             SuspendLayout();
             // 
             // lblEpost
@@ -74,10 +76,10 @@
             // 
             // btnLoggaIn
             // 
-            btnLoggaIn.Font = new Font("Segoe UI Emoji", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLoggaIn.Location = new Point(601, 354);
+            btnLoggaIn.Font = new Font("Segoe UI Emoji", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLoggaIn.Location = new Point(35, 240);
             btnLoggaIn.Name = "btnLoggaIn";
-            btnLoggaIn.Size = new Size(158, 53);
+            btnLoggaIn.Size = new Size(178, 47);
             btnLoggaIn.TabIndex = 4;
             btnLoggaIn.Text = "Logga in";
             btnLoggaIn.UseVisualStyleBackColor = true;
@@ -86,18 +88,40 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Arial Rounded MT Bold", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Calibri", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(35, 23);
             label1.Name = "label1";
-            label1.Size = new Size(303, 32);
+            label1.Size = new Size(253, 35);
             label1.TabIndex = 5;
             label1.Text = "BookSwap - Logga in";
+            // 
+            // lblIngetKonto
+            // 
+            lblIngetKonto.AutoSize = true;
+            lblIngetKonto.Location = new Point(35, 337);
+            lblIngetKonto.Name = "lblIngetKonto";
+            lblIngetKonto.Size = new Size(230, 20);
+            lblIngetKonto.TabIndex = 6;
+            lblIngetKonto.Text = "Är du ny? Registera ett nytt konto";
+            // 
+            // btnRegistreraDig
+            // 
+            btnRegistreraDig.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRegistreraDig.Location = new Point(35, 372);
+            btnRegistreraDig.Name = "btnRegistreraDig";
+            btnRegistreraDig.Size = new Size(156, 40);
+            btnRegistreraDig.TabIndex = 7;
+            btnRegistreraDig.Text = "Registrera dig";
+            btnRegistreraDig.UseVisualStyleBackColor = true;
+            btnRegistreraDig.Click += btnRegistreraDig_Click;
             // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(974, 484);
+            Controls.Add(btnRegistreraDig);
+            Controls.Add(lblIngetKonto);
             Controls.Add(label1);
             Controls.Add(btnLoggaIn);
             Controls.Add(txtLosenord);
@@ -118,5 +142,7 @@
         private TextBox txtLosenord;
         private Button btnLoggaIn;
         private Label label1;
+        private Label lblIngetKonto;
+        private Button btnRegistreraDig;
     }
 }

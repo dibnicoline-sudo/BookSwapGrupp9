@@ -11,6 +11,7 @@ namespace Servicelager
         private List<Student> studenter = new List<Student>();
         private List<Affar> affarer = new List<Affar>();
         private List<Administrator> administratorer = new List<Administrator>();
+        private List<Kurs> kurser = new List<Kurs>();
 
 
         public void LäggTillAnnons(Annons annons)
@@ -47,6 +48,10 @@ namespace Servicelager
         {
             return studenter;
         }
+        public bool TaBortStudent (Student student)
+        {
+            return studenter.Remove(student);
+        }
 
         public void LäggTillAffar(Affar affar)
         {
@@ -67,6 +72,23 @@ namespace Servicelager
         public List<Administrator> HämtaAllaAdministratorer()
         {
             return administratorer;
+        }
+        public void LäggTillKurs(Kurs kurs)
+        {
+            kurser.Add(kurs);
+        }
+
+        public List<Kurs> HämtaAllaKurser()
+        {
+            return kurser;
+        }
+        public Kurs HämtaKurs(string kurskod)
+        {
+            return kurser.FirstOrDefault(k => k.Kurskod == kurskod);
+        }
+        public bool TaBortKurs(Kurs kurs)
+        {
+            return kurser.Remove(kurs);
         }
     }
 }

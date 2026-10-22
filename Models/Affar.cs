@@ -22,6 +22,7 @@ namespace Models
             Säljare = annons.Säljare;
             Reserveringsdatum = DateTime.Now;
             Annons = annons;
+            AffarStatus = AffarStatus.Reserverad;
         }
         public void UppdateraAffarStatus(AffarStatus nyAffarStatus)
         {

@@ -8,23 +8,23 @@ namespace Models
 {
     public class Kompendium : Annons
     {
-        public string Kurskod { get; private set; }
+        public int Utgivningsår { get; private set; }
         public int AntalSidor { get; private set; }
 
         public Kompendium(int annonsId, string titel, decimal pris,
             AnnonsSkick skick, AnnonsStatus status,
             DateTime publiceringsdatum, Student säljare,
-            string kurskod, int antalSidor, Kurs kurs)
+            int utgivningsår, int antalSidor, Kurs kurs)
             : base(annonsId, titel, pris, skick, status,
                    publiceringsdatum, säljare, kurs)
         {
-            Kurskod = kurskod;
+            Utgivningsår = utgivningsår;
             AntalSidor = antalSidor;
         }
         public override string ToString()
         {
             return base.ToString() +
-                $" - Kurskod: {Kurskod}, Antal sidor: {AntalSidor}";
+                $" - Utgivningsår: {Utgivningsår}, Antal sidor: {AntalSidor}";
         }
     }
 }

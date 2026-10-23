@@ -9,22 +9,22 @@ namespace Models
     public class DigitalResurs : Annons
     {
         public string Filformat { get; private set; }
-        public double FilstorlekMB { get; private set; }
+        public string Leveranssätt { get; private set; }
 
         public DigitalResurs(int annonsId, string titel, decimal pris,
             AnnonsSkick skick, AnnonsStatus status,
             DateTime publiceringsdatum, Student säljare,
-            string filformat, double filstorlekMB, Kurs kurs)
+            string filformat, string leveranssätt, Kurs kurs)
             : base(annonsId, titel, pris, skick, status,
                    publiceringsdatum, säljare, kurs)
         {
             Filformat = filformat;
-            FilstorlekMB = filstorlekMB;
+            Leveranssätt = leveranssätt;
         }
         public override string ToString()
         {
             return base.ToString() +
-                $" - Filformat: {Filformat}, Filstorlek: {FilstorlekMB} MB";
+                $" - Filformat: {Filformat}, Leveranssätt: {Leveranssätt}";
         }
     }
 }

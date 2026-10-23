@@ -69,16 +69,22 @@ namespace GUI
             string typ = cmbTyp.SelectedItem?.ToString() ?? "";
             string extra1 = txtExtra1.Text.Trim();
             string extra2 = txtExtra2.Text.Trim();
+            string extra3 = txtExtra3.Text.Trim();
 
             if (extra1 == "" || extra2 == "")
             {
                 MessageBox.Show("Fyll i båda uppgifterna för annonstypen.");
                 return;
             }
+            if (typ == "Kursbok" && string.IsNullOrWhiteSpace(extra3))
+            {
+                MessageBox.Show("Ange kursbokens upplaga.");
+                return;
+            }
 
             string resultat = controller.SkapaAnnons(
                 titel, pris, skick, inloggadStudent,
-                valdKurs, typ, extra1, extra2);
+                valdKurs, typ, extra1, extra2, extra3);
 
             MessageBox.Show(resultat);
 
@@ -104,21 +110,37 @@ namespace GUI
             {
                 lblExtra1.Text = "ISBN";
                 lblExtra2.Text = "Författare";
+                lblExtra3.Text = "Upplaga";
+
+                lblExtra3.Visible = true;
+                txtExtra3.Visible = true;
             }
             else if (cmbTyp.SelectedIndex == 1)
             {
-                lblExtra1.Text = "Kurskod";
+                lblExtra1.Text = "Utgivningsår";
                 lblExtra2.Text = "Antal sidor";
+
+                lblExtra3.Visible = false;
+                txtExtra3.Visible = false;
             }
             else if (cmbTyp.SelectedIndex == 2)
             {
                 lblExtra1.Text = "Filformat";
-                lblExtra2.Text = "Filstorlek (MB)";
+                lblExtra2.Text = "Leveranssätt";
+
+                lblExtra3.Visible = false;
+                txtExtra3.Visible = false;
             }
 
             txtExtra1.Clear();
             txtExtra2.Clear();
+            txtExtra3.Clear();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
-    
+
 }

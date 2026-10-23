@@ -10,21 +10,23 @@ namespace Models
     {
         public string ISBN { get; private set; }
         public string Författare { get; private set; }
+        public int Upplaga { get; private set; }
 
         public Kursbok(int annonsId, string titel, decimal pris,
             AnnonsSkick skick, AnnonsStatus status,
             DateTime publiceringsdatum, Student säljare,
-            string isbn, string författare, Kurs kurs)
+            string isbn, string författare, int upplaga, Kurs kurs)
             : base(annonsId, titel, pris, skick, status,
                    publiceringsdatum, säljare, kurs)
         {
             ISBN = isbn;
             Författare = författare;
+            Upplaga = upplaga;
         }
 
         public override string ToString()
         {
-            return base.ToString() + $" - {Författare}, ISBN: {ISBN}";
+            return base.ToString() + $" - {Författare}, ISBN: {ISBN}, Upplaga: {Upplaga}";
         }
     }
 }

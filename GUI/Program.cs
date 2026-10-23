@@ -18,6 +18,7 @@ namespace GUI
             Student saljare = new Student(2, "Alex", "Karlsson", "alex@gmail.com", "0709876543", "Alex2026");
             Kurs kurs1 = new Kurs("C10B1B", "Objektorienterad systemutveckling 1");
             Kurs kurs2 = new Kurs("B187W9N", "Grundläggande programmering Java");
+            Kurs kurs3 = new Kurs("G08N2N", "Grundläggande programmering C#");
 
             Annons annons1 = new Kursbok(
                 1,
@@ -26,7 +27,7 @@ namespace GUI
                 AnnonsSkick.BraSkick,
                 AnnonsStatus.TillSalu,
                 DateTime.Now,
-                saljare, "98726839", "Anna Svenssson", kurs1
+                saljare, "98726839", "Anna Svenssson", 3, kurs1
             );
             Annons annons2 = new Kompendium(
                 2,
@@ -35,7 +36,7 @@ namespace GUI
                 AnnonsSkick.BraSkick,
                 AnnonsStatus.TillSalu,
                 DateTime.Now,
-                kopare,"B187362",90, kurs1);
+                kopare,2023,90, kurs1);
 
             Annons annons3 = new DigitalResurs(3,
                 "Python Grundbok",
@@ -43,7 +44,7 @@ namespace GUI
                 AnnonsSkick.Nyskick,
                 AnnonsStatus.TillSalu,
                 DateTime.Now,
-                saljare, "PDF", 12.5, kurs2);
+                saljare, "PDF", "E-post", kurs2);
 
             
 
@@ -61,6 +62,8 @@ namespace GUI
             databas.LäggTillAdministrator(admin);
 
             databas.LäggTillKurs(kurs1);
+            databas.LäggTillKurs(kurs2);
+            databas.LäggTillKurs(kurs3);
 
             Application.Run(new LoginForm(controller));
         }

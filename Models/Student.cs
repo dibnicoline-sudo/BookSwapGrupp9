@@ -38,11 +38,6 @@ namespace Models
             return minaAnnonser;
         }
 
-        public bool ÄgerAnnons(Annons annons)
-        {
-            return minaAnnonser.Contains(annons);
-        }
-
         public override string ToString()
         {
             return $"[{StudentId}] {Fornamn} {Efternamn} - {Epostadress}";

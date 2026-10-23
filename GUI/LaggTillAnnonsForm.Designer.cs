@@ -45,6 +45,8 @@
             lblExtra1 = new Label();
             lblExtra2 = new Label();
             txtExtra2 = new TextBox();
+            lblExtra3 = new Label();
+            txtExtra3 = new TextBox();
             SuspendLayout();
             // 
             // lblTitel
@@ -70,7 +72,7 @@
             // 
             txtTitel.Location = new Point(58, 121);
             txtTitel.Name = "txtTitel";
-            txtTitel.Size = new Size(174, 27);
+            txtTitel.Size = new Size(214, 27);
             txtTitel.TabIndex = 2;
             // 
             // lblPris
@@ -86,7 +88,7 @@
             // 
             txtPris.Location = new Point(58, 195);
             txtPris.Name = "txtPris";
-            txtPris.Size = new Size(174, 27);
+            txtPris.Size = new Size(214, 27);
             txtPris.TabIndex = 4;
             // 
             // lblSkick
@@ -104,7 +106,7 @@
             cmbSkick.Items.AddRange(new object[] { "Nyskick", "BraSkick", "Slitet" });
             cmbSkick.Location = new Point(60, 274);
             cmbSkick.Name = "cmbSkick";
-            cmbSkick.Size = new Size(174, 28);
+            cmbSkick.Size = new Size(212, 28);
             cmbSkick.TabIndex = 6;
             // 
             // btnAvbryt
@@ -142,7 +144,7 @@
             cmbKurser.FormattingEnabled = true;
             cmbKurser.Location = new Point(426, 121);
             cmbKurser.Name = "cmbKurser";
-            cmbKurser.Size = new Size(175, 28);
+            cmbKurser.Size = new Size(264, 28);
             cmbKurser.TabIndex = 10;
             // 
             // lblTyp
@@ -156,9 +158,9 @@
             // 
             // txtExtra1
             // 
-            txtExtra1.Location = new Point(428, 274);
+            txtExtra1.Location = new Point(428, 265);
             txtExtra1.Name = "txtExtra1";
-            txtExtra1.Size = new Size(174, 27);
+            txtExtra1.Size = new Size(262, 27);
             txtExtra1.TabIndex = 13;
             // 
             // cmbTyp
@@ -166,14 +168,14 @@
             cmbTyp.FormattingEnabled = true;
             cmbTyp.Location = new Point(426, 195);
             cmbTyp.Name = "cmbTyp";
-            cmbTyp.Size = new Size(175, 28);
+            cmbTyp.Size = new Size(264, 28);
             cmbTyp.TabIndex = 14;
             cmbTyp.SelectedIndexChanged += cmbTyp_SelectedIndexChanged;
             // 
             // lblExtra1
             // 
             lblExtra1.AutoSize = true;
-            lblExtra1.Location = new Point(428, 251);
+            lblExtra1.Location = new Point(428, 242);
             lblExtra1.Name = "lblExtra1";
             lblExtra1.Size = new Size(41, 20);
             lblExtra1.TabIndex = 15;
@@ -182,7 +184,7 @@
             // lblExtra2
             // 
             lblExtra2.AutoSize = true;
-            lblExtra2.Location = new Point(427, 328);
+            lblExtra2.Location = new Point(428, 306);
             lblExtra2.Name = "lblExtra2";
             lblExtra2.Size = new Size(74, 20);
             lblExtra2.TabIndex = 16;
@@ -190,16 +192,35 @@
             // 
             // txtExtra2
             // 
-            txtExtra2.Location = new Point(427, 351);
+            txtExtra2.Location = new Point(427, 329);
             txtExtra2.Name = "txtExtra2";
-            txtExtra2.Size = new Size(174, 27);
+            txtExtra2.Size = new Size(263, 27);
             txtExtra2.TabIndex = 17;
+            // 
+            // lblExtra3
+            // 
+            lblExtra3.AutoSize = true;
+            lblExtra3.Location = new Point(428, 379);
+            lblExtra3.Name = "lblExtra3";
+            lblExtra3.Size = new Size(66, 20);
+            lblExtra3.TabIndex = 18;
+            lblExtra3.Text = "Upplaga";
+            lblExtra3.Click += label1_Click;
+            // 
+            // txtExtra3
+            // 
+            txtExtra3.Location = new Point(426, 402);
+            txtExtra3.Name = "txtExtra3";
+            txtExtra3.Size = new Size(264, 27);
+            txtExtra3.TabIndex = 19;
             // 
             // LaggTillAnnonsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 531);
+            Controls.Add(txtExtra3);
+            Controls.Add(lblExtra3);
             Controls.Add(txtExtra2);
             Controls.Add(lblExtra2);
             Controls.Add(lblExtra1);
@@ -239,11 +260,12 @@
         private Label lblKurs;
         private ComboBox cmbKurser;
         private Label lblTyp;
-        private TextBox textBox1;
+        private TextBox txtExtra3;
         private TextBox txtExtra1;
         private ComboBox cmbTyp;
         private Label lblExtra1;
         private Label lblExtra2;
         private TextBox txtExtra2;
+        private Label lblExtra3;
     }
 }

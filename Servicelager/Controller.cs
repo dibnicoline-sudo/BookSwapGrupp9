@@ -21,7 +21,7 @@ namespace Servicelager
             databas.LäggTillAnnons(annons);
             annons.Säljare.LäggTillAnnons(annons);
         }
-        public string SkapaAnnons(string titel, decimal pris,AnnonsSkick skick, Student säljare, Kurs kurs,string typ, string extra1, string extra2)
+        public string SkapaAnnons(string titel, decimal pris,AnnonsSkick skick, Student säljare, Kurs kurs,string typ, string extra1, string extra2, string extra3)
         {
             if (säljare == null || kurs == null)
                 return "Säljare eller kurs saknas.";
@@ -34,30 +34,37 @@ namespace Servicelager
 
             if (typ == "Kursbok")
             {
+                if (!int.TryParse(extra3, out int upplaga) || upplaga <= 0)
+                    return "Ange en giltig upplaga.";
                 nyAnnons = new Kursbok(
                     nyttId, titel, pris, skick,
                     AnnonsStatus.TillSalu, DateTime.Now,
-                    säljare, extra1, extra2, kurs);
+                    säljare, extra1, extra2, upplaga, kurs);
             }
             else if (typ == "Kompendium")
             {
+                if (!int.TryParse(extra1, out int utgivningsår)
+                    || utgivningsår < 1000
+                    || utgivningsår > DateTime.Now.Year)
+                    return "Ange ett giltigt utgivningsår.";
+
                 if (!int.TryParse(extra2, out int antalSidor) || antalSidor <= 0)
                     return "Ange ett giltigt antal sidor.";
 
                 nyAnnons = new Kompendium(
                     nyttId, titel, pris, skick,
                     AnnonsStatus.TillSalu, DateTime.Now,
-                    säljare, extra1, antalSidor, kurs);
+                    säljare, utgivningsår, antalSidor, kurs);
             }
             else if (typ == "Digital resurs")
             {
-                if (!double.TryParse(extra2, out double filstorlek) || filstorlek <= 0)
-                    return "Ange en giltig filstorlek.";
+                if (string.IsNullOrWhiteSpace(extra2))
+                    return "Ange ett leveranssätt.";
 
                 nyAnnons = new DigitalResurs(
                     nyttId, titel, pris, skick,
                     AnnonsStatus.TillSalu, DateTime.Now,
-                    säljare, extra1, filstorlek, kurs);
+                    säljare, extra1, extra2, kurs);
             }
             else
             {

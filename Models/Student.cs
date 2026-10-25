@@ -7,22 +7,16 @@ namespace Models
     public class Student : Anvandare
     {
         public int StudentId { get; private set; }
-
-        private string losenord;
-
         private List<Annons> minaAnnonser = new List<Annons>();
         
         public Student(int studentId, string fornamn, string efternamn,
         string epostadress, string telefonnummer, string losenord)
-        : base(fornamn, efternamn, epostadress, telefonnummer)
+        : base(fornamn, efternamn, epostadress, telefonnummer,losenord)
         {
             StudentId = studentId;
-            this.losenord = losenord;
+            
         }
-        public bool KontrolleraLosenord(string angivetLosenord)
-        {
-            return losenord == angivetLosenord;
-        }
+        
         public void LäggTillAnnons(Annons annons)
         {
             minaAnnonser.Add(annons);

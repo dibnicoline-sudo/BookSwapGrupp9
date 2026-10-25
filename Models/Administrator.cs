@@ -10,11 +10,11 @@ namespace Models
 {
     public class Administrator : Anvandare
     {
-        public string Losenord { get; private set; }
+       
         public Administrator(string fornamn, string efternamn, string epostadress, string telefonnummer, string losenord)
-            : base(fornamn, efternamn, epostadress, telefonnummer)
+            : base(fornamn, efternamn, epostadress, telefonnummer, losenord)
         {
-            Losenord = losenord;
+           
         }
     }
 }

@@ -12,13 +12,19 @@ namespace Models
         public string Efternamn { get; private set; }
         public string Epostadress { get; private set; }
         public string Telefonnummer { get; private set; }
+        public string Losenord { get; private set; }
 
-        public Anvandare(string fornamn, string efternamn, string epostadress, string telefonnummer)
+        public Anvandare(string fornamn, string efternamn, string epostadress, string telefonnummer, string losenord)
         {
             Fornamn = fornamn;
             Efternamn = efternamn;
             Epostadress = epostadress;
             Telefonnummer = telefonnummer;
+            Losenord = losenord;
+        }
+        public bool KontrolleraLosenord(string angivetLosenord)
+        {
+            return Losenord == angivetLosenord;
         }
         public void UppdateraKontaktuppgifter(string nyEpostadress, string nyttTelefonnummer)
         {
